@@ -1,0 +1,20 @@
+html, body {
+  color: #32323d;
+}
+
+header {
+  background-color: #fff;
+  box-shadow: 0 3px 0 0 rgb(0 0 0 / 6%);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2000;
+  padding: 15px 0;
+
+  .logo {
+    background-image: url("../img/deezer-logo.png");
+    background-size: 100%;
+    width: 215px;
+    height: 45px;
+  }
+}
