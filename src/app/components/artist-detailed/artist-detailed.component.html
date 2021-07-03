@@ -2,15 +2,15 @@
     <div class="col">
         <div class="card detailed-card">
             <div class="card-body">
-                <div class="row  align-items-center">
-                    <div class="col">
+                <div class="row align-items-center">
+                    <div class="col-12 col-sm mb-3 mb-sm-0">
                         <h2>{{artist.name}}</h2>
-                        <h6><strong>{{artist.nb_fan}}</strong> fans</h6>
+                        <span class="border-bottom"><strong>{{artist.nb_fan}}</strong> fans</span>
                     </div>
-                    <div class="col">
+                    <div class="col-12 col-sm-4 mb-3 mb-sm-0">
                         <img src="{{artist.picture_big}}" alt="{{artist.name}}" class="img-fluid">
                     </div>
-                    <div class="col-4" *ngIf="topTracks">
+                    <div class="col-12 col-sm-4 mb-3 mb-sm-0" *ngIf="topTracks">
                         <h3>Top track</h3>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item" *ngFor="let track of topTracks">{{ track.album.title }}</li>
@@ -30,12 +30,12 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12 col-sm-3 mb-4" *ngFor="let res of albums">
+            <div class="col-12 col-sm-4 col-md-3 mb-4" *ngFor="let res of albums">
                 <div class="card h-100">
                     <div class="card-body">
                         <img src="{{ res.cover_big }}" alt="{{res.title}}" class="img-fluid mb-3">
-                        <h5>{{res.title}}</h5>
-                        <p class="mb-0">{{res.release_date}}</p>
+                        <h6>{{res.title}}</h6>
+                        <span><small>{{res.release_date}}</small></span>
                     </div>
                 </div>
             </div>
