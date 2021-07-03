@@ -1,1 +1,28 @@
-<p>artists works!</p>
+<div class="row mb-5 justify-content-center">
+    <div class="col col-sm-6">
+        <div class="input-group">
+            <input type="text" name="search" id="search" [(ngModel)]="searchVal" placeholder="Search artists..." class="form-control">
+            <span class="input-group-btn">
+          <button type="button" class="btn btn-primary" (click)="searchArtist()">
+            <fa-icon [icon]="faSearch"></fa-icon>
+          </button>
+       </span>
+        </div>
+    </div>
+</div>
+
+<div class="row" *ngIf="searchRes">
+    <div class="col-12">
+        <div class="row">
+            <div class="col-12 col-sm-4 mb-4" *ngFor="let res of searchRes">
+                <div class="card">
+                    <div class="card-body">
+                        <a routerLink="/artist/{{res.id}}"><img src="{{ res.picture_big }}" alt="{{res.name}}" class="img-fluid mb-3"></a>
+                        <h4><a routerLink="/artist/{{res.id}}">{{res.name}}</a></h4>
+                        <h6><strong>Total fans:</strong> {{res.nb_fan}}</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
