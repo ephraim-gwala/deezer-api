@@ -23,7 +23,7 @@ export class ArtistsService {
   constructor(private http: HttpClient){}
 
   searchMusic(str: string, type = 'artist'): Observable<IResult[]> {
-    const searchUrl = `https://cors-anywhere.herokuapp.com/https://api.deezer.com/search?q=${str}&offset=0&limit=10&type=${type}`;
+    const searchUrl = `https://cors-anywhere.herokuapp.com/https://api.deezer.com/search/artist?q=${str}&type=${type}`;
     return this.http.get(searchUrl).map((res: any) => <IResult[]>res.data);
   }
 

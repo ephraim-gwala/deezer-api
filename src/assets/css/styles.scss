@@ -2,6 +2,10 @@ html, body {
   color: #32323d;
 }
 
+a {
+  color: #ef5466;
+}
+
 header {
   background-color: #fff;
   box-shadow: 0 3px 0 0 rgb(0 0 0 / 6%);
@@ -16,5 +20,19 @@ header {
     background-size: 100%;
     width: 215px;
     height: 45px;
+  }
+}
+
+.section-content {
+  margin-top: 6em;
+}
+
+.btn {
+
+  &.btn-primary {
+    background-color: #32323d;
+    border: 1px solid #32323d;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
   }
 }
