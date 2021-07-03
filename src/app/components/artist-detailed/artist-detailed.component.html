@@ -1,4 +1,4 @@
-<div class="row" *ngIf="artist">
+<div class="row mb-5" *ngIf="artist">
     <div class="col">
         <div class="card detailed-card">
             <div class="card-body">
@@ -15,6 +15,27 @@
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item" *ngFor="let track of topTracks">{{ track.album.title }}</li>
                         </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row" *ngIf="albums">
+    <div class="col-12">
+        <div class="row">
+            <div class="col">
+                <h3>Albums</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-sm-3 mb-4" *ngFor="let res of albums">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <img src="{{ res.cover_big }}" alt="{{res.title}}" class="img-fluid mb-3">
+                        <h5>{{res.title}}</h5>
+                        <p class="mb-0">{{res.release_date}}</p>
                     </div>
                 </div>
             </div>

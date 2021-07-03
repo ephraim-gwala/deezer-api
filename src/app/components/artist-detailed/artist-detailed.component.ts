@@ -13,6 +13,7 @@ export class ArtistDetailedComponent implements OnInit {
   id: string | undefined;
   artist: any;
   topTracks: any;
+  albums: any;
 
   constructor(private userService: ArtistsService, private route: ActivatedRoute) { }
 
@@ -25,12 +26,16 @@ export class ArtistDetailedComponent implements OnInit {
           this.userService.getArtist(id)
             .subscribe(results => {
               this.artist = results;
-              console.log(results);
             });
 
           this.userService.getTracks(id)
+            .subscribe(results => {
+              this.topTracks = results;
+            });
+
+          this.userService.getAlbums(id)
               .subscribe(results => {
-                this.topTracks = results;
+                this.albums = results;
                 console.log(results);
               });
         });
