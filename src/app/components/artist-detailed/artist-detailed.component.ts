@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {ArtistsService} from "../../service/artists.service";
+import {ActivatedRoute} from "@angular/router";
+import {IArtist} from "../../interfaces/iartist";
 
 @Component({
   selector: 'app-artist-detailed',
@@ -6,10 +9,30 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./artist-detailed.component.scss']
 })
 export class ArtistDetailedComponent implements OnInit {
+  private loader: boolean = false;
+  id: string | undefined;
+  artist: any;
+  topTracks: any;
 
-  constructor() { }
+  constructor(private userService: ArtistsService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-  }
+    this.route.params
+        .map(params => params['id'])
+        .subscribe((id) => {
+          this.loader = true;
 
+          this.userService.getArtist(id)
+            .subscribe(results => {
+              this.artist = results;
+              console.log(results);
+            });
+
+          this.userService.getTracks(id)
+              .subscribe(results => {
+                this.topTracks = results;
+                console.log(results);
+              });
+        });
+  }
 }

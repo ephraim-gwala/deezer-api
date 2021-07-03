@@ -44,8 +44,8 @@ export class ArtistsService {
         .map((res: any) => <IAlbum> res);
   }
 
-  getTracks(albumId: string): Observable<ITrack[]> {
-    this.tracksUrl = `https://cors-anywhere.herokuapp.com/https://api.deezer.com/album/${albumId}/tracks`;
+  getTracks(artistId: string): Observable<ITrack[]> {
+    this.tracksUrl = `https://cors-anywhere.herokuapp.com/https://api.deezer.com/artist/${artistId}/top?limit=5`;
     return this.http.get(this.tracksUrl)
         .map((res: any) => <ITrack[]> res.data);
   }

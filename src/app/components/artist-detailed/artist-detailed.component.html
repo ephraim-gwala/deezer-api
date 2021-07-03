@@ -1,3 +1,23 @@
-<ul>
-    <li>test</li>
-</ul>
+<div class="row" *ngIf="artist">
+    <div class="col">
+        <div class="card detailed-card">
+            <div class="card-body">
+                <div class="row  align-items-center">
+                    <div class="col">
+                        <h2>{{artist.name}}</h2>
+                        <h6><strong>{{artist.nb_fan}}</strong> fans</h6>
+                    </div>
+                    <div class="col">
+                        <img src="{{artist.picture_big}}" alt="{{artist.name}}" class="img-fluid">
+                    </div>
+                    <div class="col-4" *ngIf="topTracks">
+                        <h3>Top track</h3>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item" *ngFor="let track of topTracks">{{ track.album.title }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
