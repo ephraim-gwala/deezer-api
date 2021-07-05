@@ -1,4 +1,4 @@
-<div class="row mb-5" *ngIf="artist">
+<div class="row mb-5" *ngIf="artist" [@flyInOut]="'in'">
     <div class="col">
         <div class="card detailed-card">
             <div class="card-body">
@@ -29,8 +29,8 @@
                 <h3>Albums</h3>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12 col-sm-4 col-md-3 mb-4" *ngFor="let res of albums">
+        <div class="row" [@pageAnimations]="totalAlbums">
+            <div class="col-12 col-sm-4 col-md-3 mb-4 album" *ngFor="let res of albums">
                 <div class="card h-100">
                     <div class="card-body">
                         <img src="{{ res.cover_big }}" alt="{{res.title}}" class="img-fluid mb-3">

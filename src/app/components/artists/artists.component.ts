@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ArtistsService } from '../../service/artists.service';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import {trigger, animate, style, transition} from '@angular/animations';
+import {trigger, animate, style, transition, query, stagger} from '@angular/animations';
 
 
 @Component({
@@ -9,16 +9,16 @@ import {trigger, animate, style, transition} from '@angular/animations';
   templateUrl: './artists.component.html',
   styleUrls: ['./artists.component.scss'],
   animations:[
-    trigger('show', [
+    trigger('pageAnimations', [
       transition(':enter', [
-        style({ opacity: 0 }),
-        animate(200, style({ opacity: 1 }))
-      ]),
-      transition(':leave', [
-        style({ opacity: 1 }),
-        animate(300, style({ opacity: 0 }))
+        query('.artist', [
+          style({opacity: 0, transform: 'translateY(200px)'}),
+          stagger(-30, [
+            animate('500ms cubic-bezier(0.35, 0, 0.25, 1)', style({ opacity: 1, transform: 'none' }))
+          ])
+        ])
       ])
-    ])
+    ]),
   ]
 })
 export class ArtistsComponent implements OnInit {
