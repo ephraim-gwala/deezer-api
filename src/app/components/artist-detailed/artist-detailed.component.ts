@@ -42,7 +42,7 @@ export class ArtistDetailedComponent implements OnInit {
   artist: any;
   topTracks: any;
   albums: any;
-  totalAlbums = 0;
+  noAlbums:boolean = false;
 
   constructor(private userService: ArtistsService, private route: ActivatedRoute) { }
 
@@ -68,7 +68,9 @@ export class ArtistDetailedComponent implements OnInit {
           this.userService.getAlbums(id)
               .subscribe(results => {
                 this.albums = results;
-                this.totalAlbums = this.albums.length;
+                if(this.albums.length == 0) {
+                    this.noAlbums = true;
+                }
               });
         });
   }

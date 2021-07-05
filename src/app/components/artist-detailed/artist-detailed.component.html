@@ -22,14 +22,14 @@
     </div>
 </div>
 
-<div class="row" *ngIf="albums">
+<div class="row">
     <div class="col-12">
         <div class="row">
             <div class="col">
                 <h3>Albums</h3>
             </div>
         </div>
-        <div class="row" [@pageAnimations]="totalAlbums">
+        <div class="row" @pageAnimations *ngIf="albums">
             <div class="col-12 col-sm-4 col-md-3 mb-4 album" *ngFor="let res of albums">
                 <div class="card h-100">
                     <div class="card-body">
@@ -39,6 +39,12 @@
                     </div>
                 </div>
             </div>
+            <div class="col" *ngIf="noAlbums">
+                <div class="album">
+                    <p>No albums found</p>
+                </div>
+            </div>
         </div>
+
     </div>
 </div>

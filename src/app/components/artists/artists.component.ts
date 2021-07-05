@@ -22,7 +22,7 @@ import {trigger, animate, style, transition, query, stagger} from '@angular/anim
   ]
 })
 export class ArtistsComponent implements OnInit {
-  loading: boolean = false;
+  noArtist: boolean = false;
   searchVal: any;
   searchRes: any;
   faSearch = faSearch;
@@ -37,6 +37,9 @@ export class ArtistsComponent implements OnInit {
     this.userService.searchMusic(this.searchVal)
         .subscribe(results => {
           this.searchRes = results;
+          if(this.searchRes.length == 0) {
+            this.noArtist = true;
+          }
         });
   }
 

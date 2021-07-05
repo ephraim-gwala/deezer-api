@@ -24,5 +24,13 @@
                 </div>
             </div>
         </div>
+        <div class="row" *ngIf="noArtist">
+            <div class="col artist">
+                <div class="album">
+                    <p>No Artist by "{{ searchVal }}" was found</p>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+
