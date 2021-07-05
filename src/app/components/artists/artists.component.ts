@@ -32,6 +32,7 @@ export class ArtistsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //search for artist function
   searchArtist() {
     this.userService.searchMusic(this.searchVal)
         .subscribe(results => {

@@ -13,8 +13,6 @@ import { ITrack } from '../interfaces/itrack';
 })
 
 export class ArtistsService {
-
-  // private searchUrl = 'https://api.deezer.com/user/2529';
   private artistUrl: string | undefined;
   private albumsUrl: string | undefined;
   private albumUrl: string | undefined;

@@ -1,11 +1,7 @@
-import {Component, HostBinding, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ArtistsService} from "../../service/artists.service";
 import {ActivatedRoute} from "@angular/router";
 import {trigger, animate, style, query, stagger, transition, state, group} from '@angular/animations';
-
-let [] = [
-
-];
 
 @Component({
     selector: 'app-artist-detailed',
@@ -56,16 +52,19 @@ export class ArtistDetailedComponent implements OnInit {
         .subscribe((id) => {
           this.loader = true;
 
+          //get the artist using artist id
           this.userService.getArtist(id)
             .subscribe(results => {
               this.artist = results;
             });
 
+          //Get artist top tracks
           this.userService.getTracks(id)
             .subscribe(results => {
               this.topTracks = results;
             });
 
+          //Get all the artist albums
           this.userService.getAlbums(id)
               .subscribe(results => {
                 this.albums = results;
