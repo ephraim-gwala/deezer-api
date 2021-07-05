@@ -36,7 +36,6 @@ export class ArtistDetailedComponent implements OnInit {
           this.userService.getAlbums(id)
               .subscribe(results => {
                 this.albums = results;
-                console.log(results);
               });
         });
   }

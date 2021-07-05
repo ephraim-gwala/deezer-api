@@ -19,7 +19,6 @@ export class ArtistsComponent implements OnInit {
   }
 
   searchArtist() {
-    console.log(this.searchVal);
     this.userService.searchMusic(this.searchVal)
         .subscribe(results => {
           this.searchRes = results;
